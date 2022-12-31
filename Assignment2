@@ -1,0 +1,27 @@
+Steps to bundle and create a react app without using create-react-app command
+
+1) execute npm init command in terminal
+- provide answers to certains questions asked in this step such as name,version,author etc., this will help to create package.json file
+
+2) execute npm install -D parcel command in terminal
+- parcel is a bundler that helps to bundle our react app
+- '-D' or '--save-dev' indicates that the respective package is a development dependency
+- without the above attributes, e.g. npm install react, indicates that react package needs to be installed as a dependency applicable for development as well as production.
+- this step generates node_modules folder and package-lock.json file
+
+3)execute npm install react command in terminal
+  execute npm install react-dom command in terminal
+- this will download react and react-dom packages in our application
+
+4)remove the react related cdn links from index.html and add 'type=modules' in the script tag related to 'App.js' file in index.html
+
+5) execute npx parcel index.html command in terminal
+- this will help us to browse our application on a localhost url
+
+6) to build our application
+- remove   "main": "App.js" from package.json
+- run npx parcel build index.html
+
+7) add browserslist key in package.json
+- browserslist indicates that the app needs to be supported by specified browsers and its versions or cover up certain % of users
+- refer https://browserslist.dev/ url for syntax to add in browserslist in package.json file
