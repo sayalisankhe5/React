@@ -1,0 +1,18 @@
+1) What is JSX?
+- JSX is a syntax format to write React related code in a more readable format. It is html like syntax for javascript.
+
+2) Superpowers of JSX
+- more readable
+- easy to code
+
+3)Role of 'type' attribute  in script tag?What values can be given to it?
+- 'type' attribute represents the type of script. It can hold following values:
+- empty string or no value: This indicates that the script is a classic script containing javascript code
+- module: This indicates that the script code is treated as javascript module. The processing of contents of the module script is deferred and it requires the use of cors for cross origin fetching.
+- importmap: This value indicates that the body of the element contains importmap.
+- Any other value: In this case, the embedded content is treated as data block. developers must use a valid mime type to denote data blocks.All other attributes will be ignored, including the src attribute.
+
+4){TitleComponent} vs {<TitleComponent />} vs {<TitleComponent></TitleComponent>} in JSX
+- {TitleComponent} is used to render react elements.
+- {<TitleComponent />} is used to render react component.React components are same as functions in javascript. It has a direct end tag.
+- {<TitleComponent></TitleComponent>} is used to render react component. It has start and end tags.
