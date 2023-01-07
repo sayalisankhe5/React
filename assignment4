@@ -1,0 +1,25 @@
+1) Is JSX mandatory for React?
+- No, it is not mandatory. We can use React.createElement method to create UI in React.
+
+2) Is ES6 mandatory for React?
+- No, it is not mandatory. We can use React.createElement method to create UI in React.
+
+3) {TitleComponent} vs {<TitleComponent />} vs {<TitleComponent></TitleComponent>} in JSX
+- {TitleComponent} is used to render react elements.
+- {<TitleComponent />} is used to render react component.React components are same as functions in javascript. It has a direct end tag.
+- {<TitleComponent></TitleComponent>} is used to render react component. It has start and end tags.
+
+4) How to write comments in JSX?
+- We can write comments in this format -> {/* comments */}
+
+5) What is <React.Fragment></React.Fragment> and <></>?
+- <React.Fragment></React.Fragment> and <></> are both same.They are empty tags that help us to use it as a parent tag/element in JSX.These tags do not render in DOM.
+
+6) What is Virtual DOM?
+- Virtual DOM is tree like representation of browser DOM.
+
+7) What is Reconciliation in React?
+- Reconciliation is the process using which React updates the Browser DOM.It uses a diffing algorithm that checks and compares the difference/changes between the old virtual DOM and new virtual DOM, and accordingly only renders/updates the browser DOM with those changes.
+
+8) What is react fiber?
+- React fiber is an internal engine change that makes react even more faster and smarter.It is present in react 16 and above. It is asynchronous in nature 
