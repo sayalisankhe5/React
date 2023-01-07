@@ -2,3 +2,16 @@
   color: blue;
   /* background-color: blueviolet; */
 }
+
+.divContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f7f7a6;
+  align-items: center;
+}
+
+.searchbar {
+  height: 2rem;
+  width: 25rem;
+}

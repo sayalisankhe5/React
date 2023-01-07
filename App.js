@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 const heading = React.createElement(
   "h1",
   {
@@ -52,7 +54,6 @@ const Header1Component = () => (
   </div>
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
 //root.render(heading);
 //root.render([container, heading2]);
 //root.render(container);
