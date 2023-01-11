@@ -23,3 +23,18 @@
 
 8) What is react fiber?
 - React fiber is an internal engine change that makes react even more faster and smarter.It is present in react 16 and above. It is asynchronous in nature 
+
+9)Why do we need keys in react?when do we need keys in react?
+- keys are needed to uniquely identify an element/tag.When we have multiple children or list of data then we need keys in react.
+
+10) Can we use index as keys in react?
+- yes, we can use index as keys in react.But, it is not recommended to use index as keys.
+
+11) What is props in react?Ways to pass them?
+- props are properties that can be pass from one component to another.We can pass props in the form of 
+<RestaurantCard restatuant = {restaurant} />
+<RestaurantCard {...restaurant} />
+
+12)What is config driven UI?
+- whenever the UI changes as per certain configurations received from backend, such dynamic UI is called config driven UI. 
+
