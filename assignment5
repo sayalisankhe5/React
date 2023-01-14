@@ -1,0 +1,25 @@
+1) What is the difference between named export, default export, and * as export?
+- NAMED EXPORT means using the exact name while importing that export. We can have multiple named exports from a single file. 
+eg: // exports from ./MyComponent.js file
+export const MyComponent = () => {}
+
+// importing it as 
+import { MyComponent } from "./MyComponent";
+
+- We can have a single DEFAULT EXPORT from a single file. While importing we can use any name ,but it is recommended to use same name.
+eg: //export from ./MyComponent.js file
+const MyComponent = () => {}
+export default MyComponent;
+
+//importing it
+import MyDefaultComponent from "./MyComponent";  OR import MyComponent from "./MyComponent";
+
+- * as export/import means we can use a single object to import all named exports
+e.g:  // exports from ./MyComponent.js file
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
+
+//importing it
+import * as MainComponents from "./MyComponent";
+// we can use MainComponents.MyComponent and MainComponents.MyComponent2 in our code
+
