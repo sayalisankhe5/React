@@ -15,3 +15,43 @@
   height: 2rem;
   width: 25rem;
 }
+
+.header {
+  display: flex;
+  /* border: black 2px solid; */
+  justify-content: space-between;
+  margin: 10px 85px;
+}
+
+.nav-items > ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-items > ul > li {
+  padding: 10px;
+}
+
+.card {
+  width: 200px;
+  /* border: 2px solid blue; */
+  /* text-align: center; */
+  margin: 20px;
+}
+
+.card > img {
+  width: 100%;
+}
+.card > h4 {
+  color: gray;
+  margin-top: 0;
+}
+.search-container {
+  margin: 10px 85px;
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 65px;
+}
