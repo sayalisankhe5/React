@@ -23,3 +23,13 @@ export const MyComponent2 = () => {}
 import * as MainComponents from "./MyComponent";
 // we can use MainComponents.MyComponent and MainComponents.MyComponent2 in our code
 
+2) What is the importance of config.js file?
+- config.js file contains the configuration details that can help us to dynamically update the UI as required. This file is important in building config-driven UI.
+
+3) What are React Hooks?
+- React hooks are basically javascript function that helps us to perform some functionality in React. React Hooks names start with 'use' keyword.
+
+4) Why do we need useState Hook?
+- useState hook is needed to manage state of our component.It helps to declare local state variables for our component and change or manipulate its value.
+- useState hook returns and array consisting of two values, first value indicates the variable value itself and second value is a function that is used to change the value of the variable.
+- It takes a single input of initial or default value of the local variable.
