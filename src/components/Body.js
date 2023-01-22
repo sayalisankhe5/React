@@ -3,12 +3,8 @@ import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchWord, restoList) {
-  return restoList.filter((r) =>
-    r.data.name.toLowerCase().includes(searchWord.toLowerCase())
-  );
-}
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   //const searchTxt = "KFC";
@@ -34,6 +30,12 @@ const Body = () => {
     getAllRestaurants();
   }, []);
 
+  const online = useOnline();
+
+  if (!online) {
+    return <h1>You are offline, please check your internet connection</h1>;
+  }
+
   return allRestaurants.length === 0 ? (
     // <h2>Wait it is loading</h2>
     <Shimmer />
@@ -42,9 +44,10 @@ const Body = () => {
       {console.log(searchClicked)}
       <div className="search-container">
         <input
+          style={{ width: "20%" }}
           type="text"
           className="search-input"
-          placeholder="Search"
+          placeholder="Find your favorite restaurant here.."
           value={searchInput}
           onChange={(e) => {
             setSearchInput(e.target.value);
