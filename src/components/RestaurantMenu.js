@@ -19,7 +19,7 @@ const RestaurantMenu = () => {
     <Shimmer />
   ) : (
     <>
-      <div>
+      <div className="menu-banner">
         <img src={IMG_CDN_URL + restaurant.cloudinaryImageId} />
         <h1>Restaurant Id : {restaurant.id}</h1>
         <h2>Restaurant name : {restaurant.name}</h2>

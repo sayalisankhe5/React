@@ -1,9 +1,9 @@
-#ch1 {
+/* #ch1 {
   color: blue;
-  /* background-color: blueviolet; */
-}
+  /* background-color: blueviolet; 
+}*/
 
-.divContainer {
+/* .divContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,9 +17,9 @@
 }
 
 .header {
-  display: flex;
-  /* border: black 2px solid; */
-  justify-content: space-between;
+  display: flex; */
+/* border: black 2px solid; */
+/*  justify-content: space-between;
   margin: 10px 85px;
   box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
   right: 0;
@@ -43,40 +43,46 @@
   padding: 10px;
   font-size: 16px;
   font-weight: 500;
+} */
+
+/* .card {
+  width: 295px;
+  height: 340px;
+  /* border: 2px solid blue; */
+/* text-align: center; 
+  margin: 10px;
+  border: 1px solid transparent;
+  padding: 10px; */
+/* box-shadow: 15px 15px 10px -15px #111; */
+/*  text-decoration: none;
 }
 
-.card {
-  width: 295px;
-  height: 376px;
-  /* border: 2px solid blue; */
-  /* text-align: center; */
-  margin: 20px;
-  /* box-shadow: 15px 15px 10px -15px #111; */
-  text-decoration: none;
+.card:hover {
+  border: 1px solid black;
 }
 
 .card > img {
   width: 100%;
 }
-.card > h4 {
-  /* color: gray;
+.card > h4 { */
+/* color: gray;
   margin-top: 0px; */
-  color: #686b78;
+/*  color: #686b78;
   font-size: 14px;
   margin-top: 4px;
   margin-bottom: 0px;
 }
 .card > h3 {
-  color: black;
-  /*margin-bottom: 0px;
+  color: black; */
+/*margin-bottom: 0px;
   margin-top: 0px; */
-  font-size: 17px;
+/*  font-size: 17px;
   font-weight: 600;
   word-break: break-word;
   margin-top: 14px;
   margin-bottom: 0px;
-}
-
+} */
+/*
 .card > h5 {
   color: black;
   margin-bottom: 0px;
@@ -95,7 +101,7 @@
 
 .shimmer-card {
   width: 295px;
-  height: 376px;
+  height: 340px;
   background: lightgray;
   margin: 20px;
   box-shadow: 15px 15px 10px -15px #111;
@@ -109,3 +115,13 @@
   justify-content: space-between;
   color: #535665;
 }
+
+.menu-banner {
+  display: flex;
+  height: 200px;
+  position: sticky;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

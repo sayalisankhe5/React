@@ -42,11 +42,11 @@ const Body = () => {
   ) : (
     <>
       {console.log(searchClicked)}
-      <div className="search-container">
+      <div className="search-container mt-7 mr-20 mb-7 ml-20">
         <input
-          style={{ width: "20%" }}
+          //style={{ width: "20%", padding: "5px", borderRadius: "10px" }}
           type="text"
-          className="search-input"
+          className="px-1 py-1 w-72 rounded-lg border-black"
           placeholder="Find your favorite restaurant here.."
           value={searchInput}
           onChange={(e) => {
@@ -54,7 +54,8 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          //style={{ padding: "5px", borderRadius: "10px" }}
+          className="px-1 py-1 mx-1 rounded-lg bg-orange-400	"
           onClick={() => {
             if (searchClicked === "true") {
               setSearchClicked("false");
@@ -68,14 +69,14 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="restaurant-list flex mx-20 flex-wrap my-16">
         {filteredRestaurants.length === 0 ? (
           <h2>No restaurants found</h2>
         ) : (
           filteredRestaurants.map((restaurant) => {
             return (
               <Link
-                style={{ textDecoration: "none" }}
+                //style={{ textDecoration: "none" }}
                 to={"/restaurant/" + restaurant?.data?.id}
               >
                 <RestaurantCard

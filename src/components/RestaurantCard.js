@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
 const RestaurantCard = (props) => {
   return (
-    <div className="card">
+    <div className="card w-72 h-80 hover:border border-solid border-x-black">
       <img
         alt="card"
         src={IMG_CDN_URL + props.restaurant.data.cloudinaryImageId}
