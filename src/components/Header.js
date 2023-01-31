@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Title = () => {
   return (
@@ -17,9 +19,12 @@ const Title = () => {
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
+
+  const userObj = useContext(UserContext);
+
   return (
     // <div className="header">
-    <div className="flex h-20 justify-between my-2 mx-20">
+    <div className=" border border-black flex h-20 justify-between my-2 mx-20 px-1">
       {/* {appTitle} */}
       <Title />
       <div className="nav-items">
@@ -42,6 +47,7 @@ const Header = () => {
         </ul>
       </div>
       <h1>{isOnline ? <span>&#128994;</span> : <span>&#128308;</span>}</h1>
+      <span className="font-bold p-10">{userObj?.user.name}</span>
       {isLoggedIn ? (
         <button
           onClick={() => {

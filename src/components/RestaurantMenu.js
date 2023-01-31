@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../constants";
-import useRestaurantFetcher from "../utils/useRestaurantFetcher";
+import useRestaurantMenuFetcher from "../utils/useRestaurantMenuFetcher";
 import Shimmer from "./Shimmer";
 //import Shimmer from "./Shimmer";
 
@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
   //const [restaurant, setRestaurant] = useState({});
   //const [restaurant, setRestaurant] = useState(null);
 
-  const restaurant = useRestaurantFetcher(params.id);
+  const restaurant = useRestaurantMenuFetcher(params.id);
 
   return !restaurant ? (
     <Shimmer />

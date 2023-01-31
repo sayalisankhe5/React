@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -31,6 +32,11 @@ class Profile extends React.Component {
     return (
       <div>
         <h2> profile class component</h2>
+        <UserContext.Consumer>
+          {(value) => {
+            return <h4 className="font-bold">{value.user.name}</h4>;
+          }}
+        </UserContext.Consumer>
         <h3>Name: {this.props.name}</h3>
         {/* <h3>count : {this.state.count}</h3> */}
         <h3>count1 : {count}</h3>
