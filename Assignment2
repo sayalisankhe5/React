@@ -38,7 +38,7 @@ THOERY ASSIGNMENT
 - parcel-cache is a folder which stores or caches information about our project so that when we rebuild the project, it doesn't need to re-analyze everything and speeds up the rebuilding process.
 
 4)What is `npx` ?
-- npx is also called as node package execute. It is a npm package runner that helps you to execute any npm package with needing to install it in our project
+- npx is also called as node package execute. It is a npm package runner that helps you to execute any npm package without needing to install it in our project
 
 5)What is difference between `dependencies` vs `devDependencies`
 - dependencies are packages on which our project is depended. `devDependencies` are those packages that are needed only in development environment whereas `dependencies` are simple dependencies that are needed in dev as well as production environment.
