@@ -11,6 +11,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 //import Profile from "./components/Profile";
 import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -20,6 +23,10 @@ const InstaMart = lazy(() => {
 const AboutUS = lazy(() => {
   return import("./components/About");
 });
+
+// const Cart = lazy(() => {
+//   return import("./components/Cart");
+// });
 
 /*const heading = React.createElement(
   "h1",
@@ -78,10 +85,12 @@ const appTitle = <h1>Food Villa</h1>;
 const AppLayout = () => {
   return (
     <React.Fragment>
-      <Header />
-      {/* <Body /> */}
-      <Outlet />
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        {/* <Body /> */}
+        <Outlet />
+        <Footer />
+      </Provider>
     </React.Fragment>
   );
 };
@@ -125,6 +134,15 @@ const appRouter = createBrowserRouter([
           <Suspense fallback={<Shimmer />}>
             <InstaMart />
           </Suspense>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          // <Suspense fallback={<Shimmer />}>
+          //   <Cart />
+          // </Suspense>
+          <Cart />
         ),
       },
     ],
