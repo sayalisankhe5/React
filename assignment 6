@@ -1,2 +1,17 @@
 1) What is a microservice?
 - microservice is an architectural pattern for developing applications/software as a collection of small independent services that can communicate to each other.
+
+2) What is a monolith architecture?
+- monolith architecture involves all the software components and functionalities are combined and unified together in a single piece.All the components are tightly coupled to each other.
+
+3) What is the difference between monolith and microservice?
+-
+
+4) why do we need a useeffect hook?
+- useEffect hook helps in performing any side effects of our components after it is rendered.We can perform state changes, DOM manipulation, Data fetching activities using useEffect hook.
+
+5) What is optional chaining?
+- optional chaining is (?.) operator that accesses an object's property or calls a function. If the object accessed ot function called is undefined or null then this operator evaluates or gives output as undefined instead of throwing an error.
+
+6) What is shimmer ui?
+- 
