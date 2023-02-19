@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 const Title = () => {
   return (
     <img
+      data-testid="logo"
       alt="Foodista"
       //style={{ height: "100%" }}
       className="h-full"
@@ -25,7 +26,7 @@ const Header = () => {
 
   return (
     // <div className="header">
-    <div className=" border border-black flex h-20 justify-between my-2 mx-20 px-1">
+    <div className=" flex h-20 justify-between my-2 mx-20 px-1">
       {/* {appTitle} */}
       <Title />
       <div className="nav-items">
@@ -42,14 +43,18 @@ const Header = () => {
             <Link to="/contact">Contact us</Link>
           </li>
           <li className="px-2">
-            <Link to="/cart">Cart - {cartItems.length} items </Link>
+            <Link to="/cart" data-testid="cart">
+              Cart - {cartItems.length} items{" "}
+            </Link>
           </li>
           <li className="px-2">
             <Link to="/instamart">InstaMart</Link>
           </li>
         </ul>
       </div>
-      <h1>{isOnline ? <span>&#128994;</span> : <span>&#128308;</span>}</h1>
+      <h1 data-testid="online-status">
+        {isOnline ? <span>&#128994;</span> : <span>&#128308;</span>}
+      </h1>
       <span className="font-bold p-10">{userObj?.user.name}</span>
       {isLoggedIn ? (
         <button

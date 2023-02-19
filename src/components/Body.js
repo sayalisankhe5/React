@@ -17,6 +17,7 @@ const Body = () => {
 
   async function getAllRestaurants() {
     const streamData = await fetch(
+      //"https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.45953&lng=72.817498&offset=47&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING"
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.45953&lng=72.817498&page_type=DESKTOP_WEB_LISTING"
     );
     const jsonData = await streamData.json();
@@ -42,7 +43,7 @@ const Body = () => {
   ) : (
     <>
       {console.log(searchClicked)}
-      <div className="search-container border-black border mt-7 mr-20 mb-7 ml-20">
+      <div className="search-container  mt-7 mr-20 mb-7 ml-20 px-14">
         <input
           //style={{ width: "20%", padding: "5px", borderRadius: "10px" }}
           type="text"
@@ -69,7 +70,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list border border-black flex flex-wrap my-0 mx-20 px-9">
+      <div className="restaurant-list  flex flex-wrap my-0 mx-20 px-9">
         {filteredRestaurants.length === 0 ? (
           <h2>No restaurants found</h2>
         ) : (
