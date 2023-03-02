@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IMG_CDN_URL } from "../constants";
-import { clearcart } from "../utils/cartSlice";
+import { clearcart, removeItem } from "../utils/cartSlice";
 /* import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -30,6 +30,10 @@ const Cart = () => {
   }; */
   const clearCart = () => {
     dispatch(clearcart());
+  };
+
+  const remove = (item) => {
+    dispatch(removeItem(item));
   };
 
   //return {
@@ -207,7 +211,10 @@ const Cart = () => {
                         Number(item.price.toString().slice(0, -2))}
                     </td>
                     <td className="px-6 py-4">
-                      <button className="font-medium text-red-600 dark:text-red-500 hover:underline">
+                      <button
+                        onClick={() => remove(item)}
+                        className="font-medium text-red-600 dark:text-red-500 hover:underline"
+                      >
                         Remove
                       </button>
                     </td>
