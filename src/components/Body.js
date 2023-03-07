@@ -70,7 +70,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list  flex flex-wrap my-0 mx-20 px-9">
+      <div className="restaurant-list pb-12 flex flex-wrap my-0 mx-20 px-9">
         {filteredRestaurants.length === 0 ? (
           <h2>No restaurants found</h2>
         ) : (

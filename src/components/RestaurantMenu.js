@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="">
+    <div className="pb-12">
       <div className="flex h-60 bg-black px-32">
         <img
           className="h-40 w-64 my-10 mr-5"
