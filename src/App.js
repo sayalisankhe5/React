@@ -147,12 +147,11 @@ const appRouter = createBrowserRouter([
           <Cart />
         ),
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
-  },
-
-  {
-    path: "/login",
-    element: <Login />,
   },
 ]);
 

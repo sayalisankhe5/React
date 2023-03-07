@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IMG_CDN_URL } from "../constants";
+import { Modal, Button, HiOutlineExclamationCircle } from "flowbite-react";
 
 import {
   calculateTotals,
@@ -122,7 +123,7 @@ const Cart = () => {
     <>
       {cartItems?.length > 0 ? (
         <>
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg  m-3">
+          <div className="relative w-full overflow-x-auto shadow-md sm:rounded-lg  m-3">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -288,9 +289,9 @@ const Cart = () => {
             <div
               id="popup-modal"
               tabIndex="-1"
-              className="fixed bg-gray-500 opacity-80 top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+              className="fixed bg-gray-500 opacity-95 top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full sm:h-full w-full"
             >
-              <div className=" w-full  flex justify-center items-center h-screen md:h-auto">
+              <div className="relative w-full  flex justify-center items-center h-screen md:h-auto">
                 <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                   <button
                     type="button"
@@ -353,6 +354,31 @@ const Cart = () => {
               </div>
             </div>
           )}
+
+          {/* <Modal
+            show={showDeleteBox}
+            size="md"
+            popup={true}
+            onClose={handleClose}
+          >
+            <Modal.Header />
+            <Modal.Body>
+              <div className="text-center">
+                <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
+                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                  Are you sure you want to delete this product?
+                </h3>
+                <div className="flex justify-center gap-4">
+                  <Button color="failure" onClick={clearCart}>
+                    Yes, I'm sure
+                  </Button>
+                  <Button color="gray" onClick={handleClose}>
+                    No, cancel
+                  </Button>
+                </div>
+              </div>
+            </Modal.Body>
+          </Modal> */}
         </>
       ) : (
         <div className="flex flex-row justify-center align-middle text-gray-500">

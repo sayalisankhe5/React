@@ -121,33 +121,42 @@ const Header = () => {
           />
         </Link>
         <div className="flex md:order-2">
-          <Dropdown
-            arrowIcon={false}
-            inline={true}
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                rounded={true}
-              />
-            }
-          >
-            <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">
-                name@flowbite.com
-              </span>
-            </Dropdown.Header>
-            {/* <Dropdown.Item>Dashboard</Dropdown.Item>
+          {isLoggedIn ? (
+            <Dropdown
+              arrowIcon={false}
+              inline={true}
+              label={
+                <Avatar
+                  alt="User settings"
+                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                  rounded={true}
+                />
+              }
+            >
+              <Dropdown.Header>
+                <span className="block text-sm">Bonnie Green</span>
+                <span className="block truncate text-sm font-medium">
+                  name@flowbite.com
+                </span>
+              </Dropdown.Header>
+              {/* <Dropdown.Item>Dashboard</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
             <Dropdown.Item>Earnings</Dropdown.Item> */}
-            <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
-          </Dropdown>
+              <Dropdown.Divider />
+              <Dropdown.Item>Sign out</Dropdown.Item>
+            </Dropdown>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
+
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
-          <Link to="/">Home</Link>
+          <li className="block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100  text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white">
+            <Link to="/" className="">
+              Home
+            </Link>
+          </li>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
           <Link to="/cart">
