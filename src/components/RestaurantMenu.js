@@ -10,6 +10,7 @@ import { filterMenuData } from "../utils/helper";
 //import Shimmer from "./Shimmer";
 
 const RestaurantMenu = () => {
+  const [filteredData, setFilteredData] = useState([]);
   const params = useParams();
   const dispatch = useDispatch();
   // const {id} = params;
@@ -17,13 +18,11 @@ const RestaurantMenu = () => {
 
   //const [restaurant, setRestaurant] = useState({});
   //const [restaurant, setRestaurant] = useState(null);
-  const handleClick = () => {
-    dispatch(addItem(["momo"]));
-  };
 
   const addFoodItem = (item) => {
     dispatch(addItem(item));
   };
+
   const restaurant = useRestaurantMenuFetcher(params.id);
   // if (restaurant) {
   //   let priceValue = restaurant?.costForTwo.toString();
@@ -38,6 +37,7 @@ const RestaurantMenu = () => {
   };
 
   if (restaurant) {
+    //setFilteredData(Object.values(restaurant?.menu?.items));
     categories = getUniqueCategories(
       Object.values(restaurant?.menu?.items),
       "category"
@@ -45,9 +45,11 @@ const RestaurantMenu = () => {
   }
 
   const categoriesFilter = (categoryName) => {
-    console.log(
-      filterMenuData(Object.values(restaurant?.menu?.items), categoryName)
+    let newData = filterMenuData(
+      Object.values(restaurant?.menu?.items),
+      categoryName
     );
+    setFilteredData(newData);
   };
 
   return !restaurant ? (
@@ -113,7 +115,11 @@ const RestaurantMenu = () => {
           </ul>
         </div>
         <div className="ml-2 col-span-10">
-          {Object.values(restaurant?.menu?.items).map((item) => {
+          {/* {Object.values(restaurant?.menu?.items).map((item) => { */}
+          {(filteredData.length > 0
+            ? filteredData
+            : Object.values(restaurant?.menu?.items)
+          ).map((item) => {
             return (
               <div key={item.id} className="flex w-full border-b-2 py-5	">
                 <div className="self-center w-1/6">
