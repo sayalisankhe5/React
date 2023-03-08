@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
+import { toast } from "react-toastify";
 
 const cartSlice = createSlice({
   name: "cart",
@@ -21,9 +21,13 @@ const cartSlice = createSlice({
             const tempItem = { ...action.payload, quantity: 1 };
             state.items.push(tempItem);
           }
-          console.log("allowed");
         } else {
-          console.log("not allowed");
+          toast.error(
+            "Please clear the existing items from cart before adding items from different restaurant",
+            {
+              position: "bottom-left",
+            }
+          );
         }
       } else {
         const itemIndex = state.items.findIndex(

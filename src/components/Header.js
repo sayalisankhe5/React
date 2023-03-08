@@ -5,6 +5,7 @@ import { useContext } from "react";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
+import store from "../utils/store";
 
 const Title = () => {
   return (
@@ -23,6 +24,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
   const cartItems = useSelector((store) => store.cart.items);
+  const user = useSelector((store) => store.user);
   const userObj = useContext(UserContext);
 
   return (
@@ -121,22 +123,25 @@ const Header = () => {
           />
         </Link>
         <div className="flex md:order-2">
-          {isLoggedIn ? (
+          {user.user.email ? (
             <Dropdown
               arrowIcon={false}
               inline={true}
               label={
                 <Avatar
                   alt="User settings"
-                  img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                  // img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                  img="https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg"
                   rounded={true}
                 />
               }
             >
               <Dropdown.Header>
-                <span className="block text-sm">Bonnie Green</span>
+                <span className="block text-sm">
+                  {user.user.name ? user.user.name : null}
+                </span>
                 <span className="block truncate text-sm font-medium">
-                  name@flowbite.com
+                  {user.user.email}
                 </span>
               </Dropdown.Header>
               {/* <Dropdown.Item>Dashboard</Dropdown.Item>
@@ -166,7 +171,7 @@ const Header = () => {
             >
               Cart
               <span className="inline-flex items-center justify-center w-6 h-5 ml-2 text-xs font-bold text-blue-800 bg-blue-200 rounded-full">
-                {/* {cartItems.length ? 0 : 1} */}0
+                {cartItems.length}
               </span>
             </button>
           </Link>

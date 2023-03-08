@@ -14,8 +14,10 @@ import Shimmer from "./components/Shimmer";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
+import "react-toastify/dist/ReactToastify.css";
 
 import Login from "./components/Login";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -89,6 +91,7 @@ const AppLayout = () => {
     <React.Fragment>
       <Provider store={store}>
         <Header />
+        <ToastContainer />
         {/* <Body /> */}
         <Outlet />
         <Footer />

@@ -1,20 +1,34 @@
+import { signInWithPopup } from "firebase/auth";
 import { useFormik } from "formik";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { auth, authProvider } from "../utils/googleAuthConfig";
+import { updateUser } from "../utils/userSlice";
 
 const validation = (values) => {
   const errors = {};
   if (!values.email) {
-    errors.email = "Required";
+    errors.email = "Email is Required";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = "Invalid email address";
   }
   if (!values.password) {
-    errors.password = "Required";
+    errors.password = "Password is Required";
   }
   return errors;
 };
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const handleGoogleSignInClick = () => {
+    signInWithPopup(auth, authProvider).then((res) =>
+      dispatch(
+        updateUser({ name: res.user.displayName, email: res.user.email })
+      )
+    );
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -23,6 +37,7 @@ const Login = () => {
     validate: validation,
     onSubmit: (values) => {
       console.log(values);
+      dispatch(updateUser({ name: "", email: values.email }));
     },
   });
 
@@ -73,13 +88,13 @@ const Login = () => {
     </div> */}
 
       <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form className="space-y-6" action="#">
+        <form className="space-y-6" onSubmit={formik.handleSubmit}>
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">
             Sign in to Foodista
           </h5>
           <div>
             <label
-              htmlhtmlFor="email"
+              htmlFor="email"
               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
             >
               Your email
@@ -90,7 +105,6 @@ const Login = () => {
               id="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@company.com"
-              required
               value={formik.values.email}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -115,7 +129,6 @@ const Login = () => {
               id="password"
               placeholder="••••••••"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -160,7 +173,8 @@ const Login = () => {
           </button>
           <button
             type="button"
-            class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+            onClick={handleGoogleSignInClick}
+            class="text-white mx-2 bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
           >
             <svg
               class="w-4 h-4 mr-2 -ml-1"

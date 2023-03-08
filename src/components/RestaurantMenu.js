@@ -5,7 +5,7 @@ import { IMG_CDN_URL } from "../constants";
 import { addItem } from "../utils/cartSlice";
 import useRestaurantMenuFetcher from "../utils/useRestaurantMenuFetcher";
 import Shimmer from "./Shimmer";
-import NoFood from "../NoFood.jpeg";
+import NoImageAvailable from "../NoImageAvailable.jpg";
 import { filterMenuData } from "../utils/helper";
 //import Shimmer from "./Shimmer";
 
@@ -130,7 +130,11 @@ const RestaurantMenu = () => {
                       src={IMG_CDN_URL + item.cloudinaryImageId}
                     />
                   ) : (
-                    <img alt="card" className="ml-4 h-20" src={NoFood} />
+                    <img
+                      alt="card"
+                      className="ml-4 h-20"
+                      src={NoImageAvailable}
+                    />
                   )}
                 </div>
                 <div className="flex flex-col w-1/2 mx-5 ">

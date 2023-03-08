@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IMG_CDN_URL } from "../constants";
+import NoImageAvailable from "../NoImageAvailable.jpg";
 import { Modal, Button, HiOutlineExclamationCircle } from "flowbite-react";
 
 import {
@@ -160,9 +161,15 @@ const Cart = () => {
                         {item.cloudinaryImageId ? (
                           <img
                             src={IMG_CDN_URL + item.cloudinaryImageId}
-                            alt="Apple Watch"
+                            alt="Food"
                           />
-                        ) : null}
+                        ) : (
+                          <img
+                            alt="card"
+                            className="h-16"
+                            src={NoImageAvailable}
+                          />
+                        )}
                       </td>
                       <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                         <div>{item.name}</div>

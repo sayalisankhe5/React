@@ -7,7 +7,6 @@ import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 
 const Body = () => {
-  //const searchTxt = "KFC";
   const [searchInput, setSearchInput] = useState();
   const [searchClicked, setSearchClicked] = useState("false");
 
