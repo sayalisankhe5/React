@@ -6,8 +6,8 @@ const About = () => {
     <div>
       <h1>This is about us page</h1>
       {/* <Outlet /> */}
-      <ProfileFunc name="Sayali" />
-      <Profile name="Sayali" />
+      {/* <ProfileFunc name="Sayali" />
+      <Profile name="Sayali" /> */}
     </div>
   );
 };
