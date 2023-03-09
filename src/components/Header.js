@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import store from "../utils/store";
+import { clearUser, updateUser } from "../utils/userSlice";
 
 const Title = () => {
   return (
@@ -23,10 +24,28 @@ const Title = () => {
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline = useOnline();
-  const cartItems = useSelector((store) => store.cart.items);
-  const user = useSelector((store) => store.user);
   const userObj = useContext(UserContext);
+  const dispatch = useDispatch();
+  const navigateTo = useNavigate();
+  const user = useSelector((store) => store.user);
+  const cartItems = useSelector((store) => store.cart.items);
 
+  const handleSignOut = () => {
+    dispatch(clearUser());
+    localStorage.clear();
+    navigateTo("/login");
+  };
+  /* var token = localStorage.getItem("authToken");
+  if (token) {
+    dispatch(updateUser({ name: "", email: "" }));
+
+    var localCartItems = localStorage.getItem("cart");
+    if (JSON.parse(localCartItems)) {
+      console.log("json", JSON.parse(localCartItems));
+      dispatch(setItems(JSON.parse(localCartItems)));
+      
+    }
+  } */
   return (
     <>
       {/* <nav className="p-3 border-gray-200 rounded bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
@@ -148,7 +167,7 @@ const Header = () => {
             <Dropdown.Item>Settings</Dropdown.Item>
             <Dropdown.Item>Earnings</Dropdown.Item> */}
               <Dropdown.Divider />
-              <Dropdown.Item>Sign out</Dropdown.Item>
+              <Dropdown.Item onClick={handleSignOut}>Sign out</Dropdown.Item>
             </Dropdown>
           ) : (
             <Link to="/login">Login</Link>
@@ -171,7 +190,7 @@ const Header = () => {
             >
               Cart
               <span className="inline-flex items-center justify-center w-6 h-5 ml-2 text-xs font-bold text-blue-800 bg-blue-200 rounded-full">
-                {cartItems.length}
+                {cartItems?.length ? cartItems.length : 0}
               </span>
             </button>
           </Link>

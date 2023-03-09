@@ -124,7 +124,7 @@ const Cart = () => {
     <>
       {cartItems?.length > 0 ? (
         <>
-          <div className="relative w-full overflow-x-auto shadow-md sm:rounded-lg  m-3">
+          <div className="relative w-full overflow-x-auto shadow-md sm:rounded-lg pb-12  m-3">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>

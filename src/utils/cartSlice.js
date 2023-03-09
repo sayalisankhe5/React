@@ -10,6 +10,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
+      var token = localStorage.getItem("authToken");
       if (state.items.length > 0) {
         if (state.items[0].restId == action.payload.restId) {
           const itemIndex = state.items.findIndex(
@@ -39,27 +40,54 @@ const cartSlice = createSlice({
           const tempItem = { ...action.payload, quantity: 1 };
           state.items.push(tempItem);
         }
-        console.log("allowed new");
+        if (!token) {
+          toast.error("Kindly LOGIN first before adding items in cart", {
+            position: "bottom-left",
+          });
+        }
+      }
+
+      if (token) {
+        localStorage.setItem("cart", JSON.stringify(state.items));
       }
     },
+    setItems: (state, action) => {
+      state.items = [...action.payload];
+    },
     clearcart: (state, action) => {
+      var token = localStorage.getItem("authToken");
       state.items = [];
+      if (token) {
+        localStorage.removeItem("cart");
+      }
     },
     removeItem: (state, action) => {
+      var token = localStorage.getItem("authToken");
       const newItems = state.items.filter(
         (item) => item.id != action.payload.id
       );
       state.items = newItems;
+
+      if (token) {
+        localStorage.setItem("cart", JSON.stringify(state.items));
+      }
     },
     incrementQuantity: (state, action) => {
+      var token = localStorage.getItem("authToken");
+
       const itemIndex = state.items.findIndex(
         (item) => item.id == action.payload.id
       );
       if (itemIndex >= 0) {
         state.items[itemIndex].quantity += 1;
       }
+      if (token) {
+        localStorage.setItem("cart", JSON.stringify(state.items));
+      }
     },
     decrementQuantity: (state, action) => {
+      var token = localStorage.getItem("authToken");
+
       const itemIndex = state.items.findIndex(
         (item) => item.id == action.payload.id
       );
@@ -72,6 +100,9 @@ const cartSlice = createSlice({
         } else {
           state.items[itemIndex].quantity = state.items[itemIndex].quantity - 1;
         }
+      }
+      if (token) {
+        localStorage.setItem("cart", JSON.stringify(state.items));
       }
     },
     calculateTotals: (state, action) => {
@@ -106,6 +137,7 @@ export const {
   incrementQuantity,
   decrementQuantity,
   calculateTotals,
+  setItems,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

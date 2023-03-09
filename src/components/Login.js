@@ -24,9 +24,11 @@ const Login = () => {
 
   const handleGoogleSignInClick = () => {
     signInWithPopup(auth, authProvider).then((res) => {
+      console.log(res);
       dispatch(
         updateUser({ name: res.user.displayName, email: res.user.email })
       );
+      localStorage.setItem("authToken", res.user.accessToken);
       navigateTo("/");
     });
   };
@@ -40,6 +42,7 @@ const Login = () => {
     onSubmit: (values) => {
       console.log(values);
       dispatch(updateUser({ name: "", email: values.email }));
+      localStorage.setItem("authToken", email);
       navigateTo("/");
     },
   });
