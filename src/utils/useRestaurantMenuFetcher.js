@@ -5,10 +5,11 @@ const useRestaurantMenuFetcher = (restaurantID) => {
   const [restaurant, setRestaurant] = useState(null);
 
   async function getRestaurantInfo() {
-    const resData = await fetch(FETCH_MENU_URL + restaurantID);
+    const resData = await fetch(FETCH_MENU_URL(restaurantID));
     const jsonData = await resData.json();
     console.log(jsonData);
     setRestaurant(jsonData?.data);
+    console.log("checkkk", jsonData?.data?.cards[2]);
   }
 
   useEffect(() => {

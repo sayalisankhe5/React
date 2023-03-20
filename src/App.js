@@ -8,6 +8,8 @@ import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantMenuNew from "./components/RestaurantMenuNew";
+
 //import Profile from "./components/Profile";
 import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
@@ -131,7 +133,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:id",
-        element: <RestaurantMenu />,
+        element: <RestaurantMenuNew />,
       },
       {
         path: "/instamart",

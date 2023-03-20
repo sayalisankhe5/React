@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IMG_CDN_URL } from "../constants";
+import { IMG_CDN_URL, MENU_IMG_CDN_URL } from "../constants";
 import NoImageAvailable from "../NoImageAvailable.jpg";
 import { Modal, Button, HiOutlineExclamationCircle } from "flowbite-react";
 
@@ -158,9 +158,9 @@ const Cart = () => {
                       className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                     >
                       <td className="w-32 p-4">
-                        {item.cloudinaryImageId ? (
+                        {item.imageId ? (
                           <img
-                            src={IMG_CDN_URL + item.cloudinaryImageId}
+                            src={MENU_IMG_CDN_URL + item.imageId}
                             alt="Food"
                           />
                         ) : (
