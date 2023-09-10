@@ -11,6 +11,11 @@ export const FETCH_MENU_URL = (id) => {
   return `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.4559185&lng=72.7762815&restaurantId=${id}&submitAction=ENTER`;
 };
 
+export const AWS_POST_DATA_URL =
+  "https://2nwc1shv5j.execute-api.ap-south-1.amazonaws.com/default/clickstreamdata";
+export const AWS_GET_DATA_URL =
+  "https://2nwc1shv5j.execute-api.ap-south-1.amazonaws.com/default/clickstreamdata?userId=";
+
 export const restaurantList = [
   {
     type: "restaurant",

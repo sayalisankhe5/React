@@ -6,6 +6,7 @@ const userSlice = createSlice({
     user: {
       name: "",
       email: "",
+      uid: "",
     },
   },
   reducers: {
@@ -14,7 +15,7 @@ const userSlice = createSlice({
     },
     clearUser: (state, action) => {
       console.log(action.payload, "hhhhh");
-      state.user = { name: "", email: "" };
+      state.user = { name: "", email: "", uid: "" };
     },
   },
 });

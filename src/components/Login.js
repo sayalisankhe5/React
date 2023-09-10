@@ -24,9 +24,18 @@ const Login = () => {
 
   const handleGoogleSignInClick = () => {
     signInWithPopup(auth, authProvider).then((res) => {
-      console.log(res);
+      console.log(
+        res,
+        "auth res",
+        "b2yu9l5NnhbBwwAe0e2V3STTerM2",
+        "QZqW3BqccQhwE53wnY8AmZw1of53"
+      );
       dispatch(
-        updateUser({ name: res.user.displayName, email: res.user.email })
+        updateUser({
+          name: res.user.displayName,
+          email: res.user.email,
+          uid: res.user.uid,
+        })
       );
       localStorage.setItem("authToken", res.user.accessToken);
       navigateTo("/");
@@ -171,16 +180,16 @@ const Login = () => {
               Lost Password?
             </a>
           </div> */}
-            <button
+            {/* <button
               type="submit"
               className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Login to your account
-            </button>
+            </button> */}
             <button
               type="button"
               onClick={handleGoogleSignInClick}
-              class="text-white mx-2  bg-blue-700 hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
+              class="text-white mx-14  bg-blue-700 hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
